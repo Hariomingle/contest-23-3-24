@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="counter" style="text-align: center;">
+  <button onclick="increment()">Increment</button>
+  <div id="count">0</div>
+  <button onclick="decrement()">Decrement</button>
+  <button id="clear" style="display: none;" onclick="clearCount()">Clear</button>
+  <div id="error" style="color: red; display: none;">Cannot decrement. Count is zero.</div>
+</div>
+
+<script>
+let count = 0;
+
+function increment() {
+  count++;
+  document.getElementById('count').innerHTML = count;
+  if (count > 0) {
+    document.getElementById('clear').style.display = 'block';
+    document.getElementById('error').style.display = 'none';
+  }
+}
+
+function decrement() {
+  if (count > 0) {
+    count--;
+    document.getElementById('count').innerHTML = count;
+    if (count == 0) {
+      document.getElementById('clear').style.display = 'none';
+    }
+  } else {
+    document.getElementById('error').style.display = 'block';
+  }
+}
+
+function clearCount() {
+  count = 0;
+  document.getElementById('count').innerHTML = count;
+  document.getElementById('clear').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
